@@ -44,7 +44,7 @@ export default function NavBar(){
                 const isActive = pathname === link.href;
                 return (
                   <Link
-                    key={link.name}
+                    key={link.key}
                     href={link.href}
                     className={`px-3 py-2 rounded-md text-xl transition-colors ${
                       isActive
