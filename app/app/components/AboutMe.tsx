@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image";
-import { title } from "process";
 export default function AboutMe() {
 
   const aboutMeInfo = {
@@ -11,19 +10,20 @@ export default function AboutMe() {
     title: "Brandon Stile"
   }
   return (
-    <div className="grid min-[67rem]:grid-cols-2 items-center gap-8 p-25 ml-20">
+    
+    <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-12 min-[640px]:px-10 min-[1072px]:grid-cols-2 min-[1072px]:gap-16 min-[1072px]:px-12 min-[1072px]:py-24">
 
-      <div className="min-[67rem]:col-span-1 text-left text-text-primary text-lg ">
-        <div className="text-5xl font-bold text-center pb-10"> <h1>{aboutMeInfo.title}</h1> </div>
-        <div>{aboutMeInfo.text}</div>
+      <div className="text-text-primary text-lg min-[1072px]:col-span-1">
+        <div className="pb-6 text-center text-4xl font-bold min-[640px]:text-5xl min-[1072px]:pb-10"><h1>{aboutMeInfo.title}</h1></div>
+        <div className="mx-auto max-w-2xl text-center leading-relaxed min-[1072px]:text-left">{aboutMeInfo.text}</div>
       </div>
 
-      <div className="relative aspect-square min-[67rem]:col-span-1 ml-10 mr-30">
+      <div className="relative mx-auto aspect-square w-full max-w-sm min-[1072px]:col-span-1 min-[1072px]:max-w-lg">
         <Image
           src={aboutMeInfo.src}
           alt={aboutMeInfo.alt}
           fill
-          sizes=""
+          sizes="(max-width: 1071px) 85vw, 45vw"
           className="object-cover rounded-full border-15 border-border-color"
           priority
         />

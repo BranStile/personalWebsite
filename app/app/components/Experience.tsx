@@ -62,7 +62,7 @@ export default function Experience() {
                     <div className="px-6 py-4">
                         <div className="flex justify-between items-start flex-wrap gap-2 mb-1">
                             <h3 className="text-2xl font-semibold text-navigation-title"> {item.role} </h3>
-                            <span className="text-sm text-text-primary whitespace-nowrap">
+                            <span className="text-md text-text-primary whitespace-nowrap">
                                 {formatDate(item.startDate)} — {formatDate(item.endDate)}
                             </span>
                         </div>
