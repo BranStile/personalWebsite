@@ -8,3 +8,10 @@ export async function getExperience() {
     });
     return experience;
 }
+
+export async function getProjects() {
+    const projects = await prisma.project.findMany({
+        orderBy: {id: 'desc'}
+    });
+    return projects;
+}

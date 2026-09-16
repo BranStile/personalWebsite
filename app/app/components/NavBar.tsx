@@ -2,11 +2,25 @@
 
 import Link from "next/link"
 import {usePathname} from "next/navigation"
-import {useState} from "react"
+import {useEffect, useRef, useState} from "react"
 
 export default function NavBar(){
   const [isOpen, setIsOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [isOpen]);
 
     const navLinks = [
         {key: 0, name: "Home", href: "/"},
@@ -23,7 +37,7 @@ export default function NavBar(){
 
   return (
     
-    <nav role="navigation" className="bg-navigation-background sticky top-0 z-50 rounded-xl mx-3 min-[1072px]:mx-10 drop-shadow-black drop-shadow-lg">
+    <nav ref={navRef} role="navigation" className="bg-navigation-background sticky top-0 z-50 rounded-xl mx-3 min-[1072px]:mx-10 drop-shadow-black drop-shadow-lg">
       <div className="px-3 min-[1072px]:px-6">
         <div className="flex min-h-18 items-center justify-between">
           
