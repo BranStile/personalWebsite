@@ -1,3 +1,6 @@
-export default function Experience(){
-    return(<h1>EXPERIENCE</h1>);
+import Experience from "../components/Experience";
+import ExExtended from "../components/ExExtended";
+
+export default function Experiences(){
+    return(<div><ExExtended/></div>);
 }
