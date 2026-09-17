@@ -1,7 +1,7 @@
 // app/components/Experience.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export interface ExperienceItem {
     id:          string | number;
@@ -26,38 +26,17 @@ function formatDate(dateStr: string | null) {
     });
 }
 
-export default function Experience() {
-    const [experience, setExperience] = useState<ExperienceItem[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        fetch('/api/experience')
-            .then((res) => {
-                if (!res.ok) throw new Error(`API returned ${res.status}`);
-                return res.json();
-            })
-            .then((data: ExperienceItem[]) => {
-                setExperience(data);
-            })
-            .catch((err: unknown) => {
-                console.error(err);
-                setError('Unable to load experiences.');
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div>Loading experiences...</div>;
-    if (error) return <div>{error}</div>;
+export default function Experience({ initialExperience }: { initialExperience: ExperienceItem[] }) {
+    const [experience] = useState(initialExperience);
 
     return (
-        <div className="grid min-[1072px]:grid-cols-2 gap-20 max-w-2/3 mx-auto py-8 text-center">
+        <div className="grid min-[1072px]:grid-cols-2 gap-20 max-w-4/5 mx-auto py-8 text-center">
             
             {experience.map((item) => (
 
-                <div key={item.id} className="rounded-4xl hover:outline-navigation-active hover:shadow-2xl hover:shadow-navigation-active overflow-hidden outline-black outline-10 bg-navigation-background">
+                <div key={item.id} className="rounded-4xl hover:scale-102 hover:outline-navigation-active 
+                                              hover:shadow-navigation-active overflow-hidden outline-black 
+                                              outline-3 bg-navigation-background hover:shadow-[0_0_28px_6px_var(--navigation-active)]">
                     <a href={item.pageURL}>
                     <div className="h-80 w-auto">
                         <img className="object-cover h-full w-full object-center" src={item.photoLink} alt={item.photoAlt} />
@@ -67,7 +46,7 @@ export default function Experience() {
                         <div className="justify-between items-start flex-wrap gap-2 mb-1">
                             <h3 className="text-2xl font-semibold text-navigation-title"> {item.role}</h3>
                             <h3 className="text-xl text-navigation-hover-text whitespace-nowrap">
-                                {formatDate(item.startDate)} — {formatDate(item.endDate)}
+                                {formatDate(item.startDate)} - {formatDate(item.endDate)}
                             </h3>
                         </div>
                         {/* <div className="text-text-primary text-base">
