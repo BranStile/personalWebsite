@@ -29,7 +29,7 @@ export default function ExExtended({ initialExperience }: { initialExperience: E
             
             {experience.map((item) => (
 
-                <div key={item.id} className="rounded-4xl overflow-hidden outline-black outline-10 bg-navigation-background">
+                <div id={item.pageID} key={item.id} className="rounded-4xl overflow-hidden outline-black outline-10 bg-navigation-background">
                     <div className="h-80 w-auto">
                         <img className="object-cover h-full w-full object-center" src={item.photoLink} alt={item.photoAlt} />
                     </div>
