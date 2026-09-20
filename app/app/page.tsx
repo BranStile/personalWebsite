@@ -15,8 +15,10 @@ export default async function Home() {
 
     const projects = (await getProjects()).map((item) => ({
     ...item,
+    startDate: item.startDate?.toISOString() ?? null,
+    endDate: item.endDate?.toISOString() ?? null,
     createdAt: item.createdAt.toISOString(),
-    updatedAt: item.updatedAt.toISOString()
+    updatedAt: item.updatedAt.toISOString(),
   }));
 
   return (

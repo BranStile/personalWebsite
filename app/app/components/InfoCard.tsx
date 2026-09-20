@@ -4,38 +4,34 @@
 import { useState } from 'react';
 
 export interface ExperienceItem {
-    id:          string | number;
-    title:        string;
-    company:     string;
-    startDate:   string;
-    endDate:     string | null;
-    description: string;
-    createdAt:   string;
-    photoLink:   string;
-    photoAlt:    string;
-    skillsUsed:  string;
-    pageURL:     string;
-    pageID:      string;
+  id: string;
+  title: string;
+  company: string;
+  startDate: string;
+  endDate: string | null;
+  description: string;
+  createdAt: string;
+  photoLink: string;
+  photoAlt: string;
+  skillsUsed: string;
+  pageURL: string;
+  pageID: string;
 }
-
 export interface ProjectItem {
-    id:          string | number;
-    title:       string;
-    description: string;
-    startDate: string;
-    endDate: string;
-    techStack:   string[];
-    DemoURL:     string | null;
-    repoURL:     string | null;
-    createdAt:   string;
-    updatedAt:   string;
-    
-    photoAlt:    string;
-    //!
-    photoLink:    string;
-    pageURL: string;
-    skillsUsed: string
-    
+  id: string;
+  title: string;
+  description: string;
+  skillsUsed: string;
+  demoUrl: string | null;
+  repoUrl: string | null;
+  createdAt: string;
+  updatedAt: string;
+  photoLink: string;
+  photoAlt: string;
+  pageURL: string;
+  pageID: string;
+  startDate: string | null;
+  endDate: string | null;
 }
 type InfoCardItem = ExperienceItem | ProjectItem;
 function formatDate(dateStr1: string | null, dateStr2: string | null) {
