@@ -1,6 +1,5 @@
 import { getExperience, getProjects } from "@/prisma/prismaResults";
 import AboutMe from "./components/AboutMe";
-import Experience from "./components/Experience";
 import InfoCard from "./components/InfoCard";
 
 export const dynamic = "force-dynamic";

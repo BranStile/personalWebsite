@@ -1,6 +1,6 @@
 'use client'
 
-import { ExperienceItem } from "./Experience";
+import { ExperienceItem } from "./InfoCard";
 import { useEffect, useState } from "react";
 
 export default function ExExtended({ initialExperience }: { initialExperience: ExperienceItem[] }) {

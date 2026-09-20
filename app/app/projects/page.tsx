@@ -1,3 +1,5 @@
+import InfoCard from "../components/InfoCard";
+
 export default function Projects(){
-    return(<h1>PROJECTS</h1>);
+    return(<InfoCard></InfoCard>);
 }
