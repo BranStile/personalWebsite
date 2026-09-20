@@ -45,7 +45,7 @@ export default function NavBar(){
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold tracking-wider min-[1072px]:gap-3 min-[1072px]:text-4xl">
               {/* <img src={"favicon.ico"} alt="Brandon Stile logo" width={"72px"} className=""></img> */}
               {/* <img src={"favicon.ico"} alt="Brandon Stile logo" width={"100px"} className=""></img> */}
-              <img src={"favicon.ico"} alt="Brandon Stile logo" width={"120px"} className="w-16 translate-y-4 min-[1072px]:w-[120px] min-[1072px]:translate-y-7"></img>
+              <img src={"/favicon.ico"} alt="Brandon Stile logo" width={"120px"} className="w-16 translate-y-4 min-[1072px]:w-[120px] min-[1072px]:translate-y-7"></img>
               <h1 className="text-navigation-title">Brandon Stile</h1>
             </Link>
           </div>
