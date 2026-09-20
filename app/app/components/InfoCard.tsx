@@ -18,6 +18,24 @@ export interface ExperienceItem {
     pageID:      string;
 }
 
+export interface ProjectItem {
+    id:          string | number;
+    title:       string;
+    description: string;
+    techStack:   string[];
+    DemoURL:     string | null;
+    repoURL:     string | null;
+    createdAt:   string;
+    updatedAt:   string;
+    
+    photoAlt:    string;
+    //!
+    photoLink:    string;
+    pageURL: string;
+    skillsUsed: string
+    
+}
+type InfoCardItem = ExperienceItem | ProjectItem;
 function formatDate(dateStr: string | null) {
     if (!dateStr) return 'Present';
     return new Date(dateStr).toLocaleDateString('en-US', {
@@ -26,13 +44,20 @@ function formatDate(dateStr: string | null) {
     });
 }
 
-export default function Experience({ initialExperience }: { initialExperience: ExperienceItem[] }) {
-    const [experience] = useState(initialExperience);
-
+export default function InfoCard({
+  initialExperience,
+  initialProjects,
+}: {
+  initialExperience?: ExperienceItem[];
+  initialProjects?: ProjectItem[];
+}) {
+  const [items] = useState<InfoCardItem[]>(
+    initialExperience ?? initialProjects ?? []
+  );
     return (
         <div className="grid min-[1072px]:grid-cols-2 gap-20 max-w-4/5 mx-auto py-8 text-center">
             
-            {experience.map((item) => (
+            {items.map((item) => (
 
                 <div key={item.id} className="rounded-4xl hover:scale-102 hover:outline-navigation-active 
                                               hover:shadow-navigation-active overflow-hidden outline-black 
@@ -49,6 +74,14 @@ export default function Experience({ initialExperience }: { initialExperience: E
                                 {formatDate(item.startDate)} - {formatDate(item.endDate)}
                             </h3>
                         </div>
+                        {/* <div className="text-text-primary text-base">
+                            {item.description
+                                .split('•')
+                                .map((line) => line.trim())
+                                .filter(Boolean)
+                                .map((line, i) => (
+                                    <p key={i} className='p-1.5'>• {line}</p>
+                                ))}</div> */}
                     </div>
                     <div className="px-6 pt-4 pb-2">
                         {item.skillsUsed

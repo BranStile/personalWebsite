@@ -9,24 +9,26 @@ datasource db {
 
 model Project {
   id          String    @id @default(cuid())
-  title       String
-  description String
-  techStack   String[]
-  DemoUrl     String?
+  title       String    @default("Change Me")
+  description String    @default("Change Me")    
+  skillsUsed String    @default("Change Me")
+  demoUrl     String?
   repoUrl     String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  photoUrl    String    @default("/brandon2025-5.jpg")
+  photoLink    String    @default("/brandon2025-5.jpg")
   photoAlt    String    @default("Picture of Brandon")
+  pageURL    String    @default("/")
+  pageID      String    @default("")
 }
 
 model Experience {
   id          String    @id @default(cuid())
-  role        String
-  company     String
-  startDate   DateTime
+  title       String    @default("Change Me")
+  company     String    @default("Change Me")
+  startDate   DateTime  @default(now())
   endDate     DateTime?
-  description String
+  description String    @default("Change Me")
   createdAt   DateTime  @default(now())
   photoLink   String    @default("")
   photoAlt    String    @default("") 
@@ -37,6 +39,6 @@ model Experience {
 
 model Skill {
   id          String    @id @default(cuid())
-  name        String
-  category    String
+  name        String    @default("Change Me")
+  category    String    @default("Change Me")
 }
