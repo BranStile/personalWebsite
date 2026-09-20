@@ -38,7 +38,7 @@ export default function ExExtended({ initialExperience }: { initialExperience: E
                         {/* 1. Increased bottom margin, removed text-center */}
                         <div className="justify-between items-start flex-wrap gap-2 mb-6">
                             <h3 className="text-4xl text-center font-bold text-navigation-title"> 
-                                {item.role}
+                                {item.title}
                             </h3>
                         </div>
                         

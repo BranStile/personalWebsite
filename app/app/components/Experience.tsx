@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export interface ExperienceItem {
     id:          string | number;
-    role:        string;
+    title:        string;
     company:     string;
     startDate:   string;
     endDate:     string | null;
@@ -44,7 +44,7 @@ export default function Experience({ initialExperience }: { initialExperience: E
 
                     <div className="px-6 py-4">
                         <div className="justify-between items-start flex-wrap gap-2 mb-1">
-                            <h3 className="text-2xl font-semibold text-navigation-title"> {item.role}</h3>
+                            <h3 className="text-2xl font-semibold text-navigation-title"> {item.title}</h3>
                             <h3 className="text-xl text-navigation-hover-text whitespace-nowrap">
                                 {formatDate(item.startDate)} - {formatDate(item.endDate)}
                             </h3>

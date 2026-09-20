@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export interface ExperienceItem {
     id:          string | number;
-    role:        string;
+    title:        string;
     company:     string;
     startDate:   string;
     endDate:     string | null;
@@ -22,6 +22,8 @@ export interface ProjectItem {
     id:          string | number;
     title:       string;
     description: string;
+    startDate: string;
+    endDate: string;
     techStack:   string[];
     DemoURL:     string | null;
     repoURL:     string | null;
@@ -36,12 +38,19 @@ export interface ProjectItem {
     
 }
 type InfoCardItem = ExperienceItem | ProjectItem;
-function formatDate(dateStr: string | null) {
-    if (!dateStr) return 'Present';
-    return new Date(dateStr).toLocaleDateString('en-US', {
+function formatDate(dateStr1: string | null, dateStr2: string | null) {
+    if (!dateStr1) return;
+    else if(!dateStr2) return "Present";
+    
+    
+   return new Date(dateStr1).toLocaleDateString('en-US', {
         month: 'short',
         year: 'numeric',
-    });
+    }) + " - " + new Date(dateStr2).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric',
+    })
+    // if(date.contains())
 }
 
 export default function InfoCard({
@@ -69,9 +78,9 @@ export default function InfoCard({
 
                     <div className="px-6 py-4">
                         <div className="justify-between items-start flex-wrap gap-2 mb-1">
-                            <h3 className="text-2xl font-semibold text-navigation-title"> {item.role}</h3>
+                            <h3 className="text-2xl font-semibold text-navigation-title"> {item.title}</h3>
                             <h3 className="text-xl text-navigation-hover-text whitespace-nowrap">
-                                {formatDate(item.startDate)} - {formatDate(item.endDate)}
+                                {formatDate(item.startDate, item.endDate)}
                             </h3>
                         </div>
                         {/* <div className="text-text-primary text-base">
