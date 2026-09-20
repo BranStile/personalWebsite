@@ -20,6 +20,8 @@ model Project {
   photoAlt    String    @default("Picture of Brandon")
   pageURL    String    @default("/")
   pageID      String    @default("")
+  startDate DateTime?
+  endDate DateTime?
 }
 
 model Experience {
