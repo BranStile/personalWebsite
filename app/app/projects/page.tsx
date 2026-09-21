@@ -9,6 +9,7 @@ export default async function Projects(){
         startDate: item.startDate?.toISOString() ?? null,
         endDate: item.endDate?.toISOString() ?? null,
         createdAt: item.createdAt.toISOString(),
+        updatedAt: item.updatedAt.toISOString(),
     }));
 
     return(<div><ProjectsExtended initialProjects = {projects}/></div>);
