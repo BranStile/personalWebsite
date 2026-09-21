@@ -6,23 +6,16 @@ import { useEffect, useState } from "react";
 export default function ExExtended({ initialExperience }: { initialExperience: ExperienceItem[] }) {
     const [experience] = useState(initialExperience);
 
-    useEffect(() => {
-        if (experience.length > 0) {
-            const hash = window.location.hash.replace('#', '');
-            if (hash) {
-                const el = document.getElementById(hash);
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                    // Fallback in case images loading afterward shift the layout
-                    const timeout = setTimeout(() => {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 300);
-                    return () => clearTimeout(timeout);
-                }
-            }
-        }
-    }, [experience]);
+  useEffect(() => {
+      const scrollToHash = () => {
+          const hash = window.location.hash.replace('#', '');
+          const el = hash ? document.getElementById(hash) : null;
+          el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      if (experience.length > 0) scrollToHash();
+      window.addEventListener('hashchange', scrollToHash);
+      return () => window.removeEventListener('hashchange', scrollToHash);
+  }, [experience]);
 
     return (
         <div className="grid gap-20 max-w-4/5 mx-auto py-8">
