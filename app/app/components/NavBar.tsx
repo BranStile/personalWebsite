@@ -26,7 +26,6 @@ export default function NavBar(){
         {key: 0, name: "Home", href: "/"},
         {key: 1, name: "Projects", href: "/projects"},
         {key: 2, name: "Experience", href: "/experience"},
-        {key: 3, name: "Contact", href: "/contact"}
     ]
 
     const socials = [
