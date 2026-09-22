@@ -3,6 +3,8 @@
 import { ProjectItem } from "./InfoCard";
 import { useEffect, useState } from "react";
 
+
+
 export default function ProjectsExtended({ initialProjects }: { initialProjects: ProjectItem[] }) {
     const [experience] = useState(initialProjects);
 
@@ -35,21 +37,27 @@ export default function ProjectsExtended({ initialProjects }: { initialProjects:
                     </div>
 
                     <div className="px-8 md:px-12 py-6">
-                        {/* 1. Increased bottom margin, removed text-center */}
-                        <div className="justify-between items-start flex-wrap gap-2 mb-6">
+
+                        
+                        <div className=" grid grid-cols-3 items-start flex-wrap gap-2 mb-6 ">
+                            {item.demoUrl?(<a href={item.demoUrl} className="group inline-flex items-center gap-3 rounded-full bg-navigation-active
+                     px-8 py-3 text-lg font-semibold text-navigation-active-text
+                     hover:scale-[1.03] hover:shadow-[0_0_28px_6px_var(--navigation-active)] max-w-min"><div>Demo</div></a>):(<div></div>)}
+                            
                             <h3 className="text-4xl text-center font-bold text-navigation-title"> 
                                 {item.title}
                             </h3>
+                            {item.repoUrl?(<a href={item.repoUrl} className="justify-self-end max-w-min group inline-flex items-center gap-3 rounded-full bg-navigation-active
+                     px-8 py-3 text-lg font-semibold text-navigation-active-text
+                     hover:scale-[1.03] hover:shadow-[0_0_28px_6px_var(--navigation-active)]"><div>Repository</div></a>):(<div></div>)}
                         </div>
                         
-                        {/* 2. Switched to <ul>, added leading-relaxed, space-y-4, and list classes */}
                         <ul className="text-text-primary text-lg font-light leading-relaxed space-y-4 list-disc list-outside ml-6">
                             {item.description
                                 .split('•')
                                 .map((line) => line.trim())
                                 .filter(Boolean)
                                 .map((line, i) => (
-                                    /* 3. Changed <p> to <li> and removed the manual bullet character */
                                     <li key={i}>{line}</li>
                                 ))}
                         </ul>
