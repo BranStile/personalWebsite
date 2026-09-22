@@ -49,6 +49,8 @@ function formatDate(dateStr1: string | null, dateStr2: string | null) {
     // if(date.contains())
 }
 
+
+
 export default function InfoCard({
   initialExperience,
   initialProjects,

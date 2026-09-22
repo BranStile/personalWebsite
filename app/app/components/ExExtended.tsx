@@ -35,21 +35,18 @@ export default function ExExtended({ initialExperience }: { initialExperience: E
                     </div>
 
                     <div className="px-8 md:px-12 py-6">
-                        {/* 1. Increased bottom margin, removed text-center */}
                         <div className="justify-between items-start flex-wrap gap-2 mb-6">
                             <h3 className="text-4xl text-center font-bold text-navigation-title"> 
                                 {item.title}
                             </h3>
                         </div>
                         
-                        {/* 2. Switched to <ul>, added leading-relaxed, space-y-4, and list classes */}
                         <ul className="text-text-primary text-lg font-light leading-relaxed space-y-4 list-disc list-outside ml-6">
                             {item.description
                                 .split('•')
                                 .map((line) => line.trim())
                                 .filter(Boolean)
                                 .map((line, i) => (
-                                    /* 3. Changed <p> to <li> and removed the manual bullet character */
                                     <li key={i}>{line}</li>
                                 ))}
                         </ul>
