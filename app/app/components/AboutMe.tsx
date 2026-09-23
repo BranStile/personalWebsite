@@ -42,7 +42,7 @@ export default function AboutMe() {
 
         <a
           href={item?.resumeLink}
-          
+          download
           aria-label="Download resume PDF"
           className="group inline-flex items-center gap-3 rounded-full bg-navigation-active
                      px-8 py-3 text-lg font-semibold text-navigation-active-text

@@ -36,7 +36,10 @@ export interface ProjectItem {
 type InfoCardItem = ExperienceItem | ProjectItem;
 function formatDate(dateStr1: string | null, dateStr2: string | null) {
     if (!dateStr1) return;
-    else if(!dateStr2) return "Present";
+    else if(!dateStr2) return new Date(dateStr1).toLocaleDateString('en-US', {
+        month: 'short',
+        year: 'numeric',
+    }) + " - Present";
     
     
    return new Date(dateStr1).toLocaleDateString('en-US', {

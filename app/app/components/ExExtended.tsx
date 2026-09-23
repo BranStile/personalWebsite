@@ -21,8 +21,8 @@ export default function ExExtended({ initialExperience }: { initialExperience: E
         <div className="grid gap-20 max-w-4/5 mx-auto py-8">
             
             {experience.map((item) => (
-
-                <div id={item.pageID} key={item.id} className="rounded-4xl overflow-hidden outline-black outline-10 bg-navigation-background">
+                <div id={item.pageID} key={item.id} className="scroll-m-40" >
+                <div className=" rounded-4xl overflow-hidden outline-black outline-10 bg-navigation-background">
                     <div className="h-80 w-auto">
                         <img className="object-cover h-full w-full object-center" src={item.photoLink} alt={item.photoAlt} />
                     </div>
@@ -52,7 +52,7 @@ export default function ExExtended({ initialExperience }: { initialExperience: E
                                 <span key={i} className="inline-block bg-navigation-active rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item}</span>
                             ))}
                     </div>
-                </div>))}
+                </div></div>))}
         </div>
     );
 }
