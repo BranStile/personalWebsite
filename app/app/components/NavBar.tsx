@@ -82,7 +82,7 @@ export default function NavBar() {
               {socials.map((social) => {
                 return (
 
-                  <a key={social.key} href={social.href} className="  min-[1072px]:p-0 p-3" aria-label={social.name}>
+                  <a key={social.key} href={social.href} className="  min-[1072px]:p-0 p-3 min-[1072px]:translate-y-1.5" aria-label={social.name}>
                     <img src={social.src} width={"30px"} alt={social.alt} />
                   </a>
 
