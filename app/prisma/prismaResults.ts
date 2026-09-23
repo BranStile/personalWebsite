@@ -1,5 +1,5 @@
 // prisma/prismaResults.ts
-import { PrismaClient, Experience, Project } from '@prisma/client'
+import { PrismaClient, Experience, Project, AboutMe} from '@prisma/client'
 const prisma = new PrismaClient();
 
 export async function getExperience(): Promise<Experience[]> {
@@ -14,4 +14,11 @@ export async function getProjects(): Promise<Project[]> {
         orderBy: { id: 'desc' }
     });
     return projects;
+}
+
+export async function getAboutMe(): Promise<AboutMe | null>  {
+    const aboutMe = await prisma.aboutMe.findFirst({
+        orderBy: {id: 'desc'},
+    });
+    return aboutMe;
 }
