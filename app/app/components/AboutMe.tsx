@@ -18,8 +18,8 @@ export default function AboutMe() {
         </p>
 
         <a
-          href="/resume.pdf"
-          download
+          href="/BrandonStileResume.pdf"
+          
           aria-label="Download resume PDF"
           className="group inline-flex items-center gap-3 rounded-full bg-navigation-active
                      px-8 py-3 text-lg font-semibold text-navigation-active-text
