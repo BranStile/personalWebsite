@@ -24,6 +24,14 @@ model Project {
   endDate DateTime?
 }
 
+model AboutMe{
+  id         String @id @default(cuid())
+  resumeLink String @default("/BrandonStileResume.pdf")
+  summary    String @default("")
+  photoLink  String @default("BrandonStilePhoto")
+  photoAlt   String @default("Photo of Brandon")
+}
+
 model Experience {
   id          String    @id @default(cuid())
   title       String    @default("Change Me")
